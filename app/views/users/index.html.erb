@@ -25,8 +25,11 @@
 
 
 
-          <%= form_for :user, :url => {:action => :solve_captcha}, remote: true, authenticity_token: true do |f| %>
-              <%= invisible_recaptcha_tags  text: 'Solve Captcha' %>
+          <%= form_for :user, :url => {:action => :solve_captcha}, remote: true, authenticity_token: true, html: {id: :invisible_recaptcha_form } do |f| %>
+              <button type="button" id="submit-btn">
+                Submit
+              </button>
+              <%= invisible_recaptcha_tags  ui: :invisible, callback: 'submitInvisibleRecaptchaForm' %>
           <% end %>
 
 
@@ -57,8 +60,16 @@
                 evt.currentTarget.className += " active";
             }
 
+            document.getElementById('submit-btn').addEventListener('click', function (e) {
+                // do some validation
+                //if(isValid) {
+                // call reCAPTCHA check
+                grecaptcha.execute();
+                //}
+            });
+
             var submitInvisibleRecaptchaForm = function () {
-                document.getElementById("invisible-recaptcha-form").submit();
+                document.getElementById("invisible_recaptcha_form").submit();
             };
         </script>
 
