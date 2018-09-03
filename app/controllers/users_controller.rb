@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @users = User.all
+    @users = User.first
   end
 
   def show
@@ -22,6 +22,8 @@ class UsersController < ApplicationController
       flash[:alert] ="failed to solve captcha."
       #alert the user / deny access
     end
+      #flash[:notice] ="captcha solved"
+      #redirect_to users_path
   end
 
 end

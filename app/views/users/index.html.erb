@@ -21,14 +21,13 @@
 
         <div id="London" class="tabcontent" style="text-align: left;">
 
-          <form accept-charset="UTF-8" action="/users/solve_captcha" data-remote="true" method="post">
-            <h3>Solve Captcha</h3>
-            <br/>
-            <%= recaptcha_tags %>
-            <br/>
-            <input type="submit" name="commit" value="Submit" >
 
-          </form>
+
+
+
+          <%= form_for :user, :url => {:action => :solve_captcha}, remote: true, authenticity_token: true do |f| %>
+              <%= invisible_recaptcha_tags  text: 'Solve Captcha' %>
+          <% end %>
 
 
         </div>
@@ -57,6 +56,10 @@
                 document.getElementById(cityName).style.display = "block";
                 evt.currentTarget.className += " active";
             }
+
+            var submitInvisibleRecaptchaForm = function () {
+                document.getElementById("invisible-recaptcha-form").submit();
+            };
         </script>
 
 
