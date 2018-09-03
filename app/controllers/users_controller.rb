@@ -14,11 +14,11 @@ class UsersController < ApplicationController
 
   def solve_captcha
     if verify_recaptcha()
-      redirect_to users_path
+      redirect_to root_path
       flash[:notice] ="captcha solved"
       #do whatever it's suppose to do
     else
-      redirect_to users_path
+      redirect_to root_path
       flash[:alert] ="failed to solve captcha."
       #alert the user / deny access
     end
