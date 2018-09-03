@@ -31,4 +31,6 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :users
+
+  post '/users/solve_captcha', to: "users#solve_captcha"
 end

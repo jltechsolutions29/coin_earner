@@ -38,3 +38,7 @@ group :test do
   gem 'launchy'
   gem 'selenium-webdriver'
 end
+
+#gem install json -v '2.1.0'
+gem 'recaptcha', require: 'recaptcha/rails'
+gem 'bcrypt'

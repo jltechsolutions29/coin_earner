@@ -19,9 +19,18 @@
           <button class="tablinks" onclick="openCity(event, 'Tokyo')">Request Payout</button>
         </div>
 
-        <div id="London" class="tabcontent">
-          <h3>Solve Captcha</h3>
-          <p>Solve Captcha.</p>
+        <div id="London" class="tabcontent" style="text-align: left;">
+
+          <form accept-charset="UTF-8" action="/users/solve_captcha" data-remote="true" method="post">
+            <h3>Solve Captcha</h3>
+            <br/>
+            <%= recaptcha_tags %>
+            <br/>
+            <input type="submit" name="commit" value="Submit" >
+
+          </form>
+
+
         </div>
 
         <div id="Paris" class="tabcontent">
