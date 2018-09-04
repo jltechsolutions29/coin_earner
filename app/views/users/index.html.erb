@@ -28,7 +28,7 @@
           <%= form_for :user, :url => {:action => :solve_captcha}, remote: true, authenticity_token: true, html: {id: :invisible_recaptcha_form } do |f| %>
 
               <button type="button" id="submit-btn">
-                Submit
+                Solve Captcha
               </button>
               <%= invisible_recaptcha_tags ui: :invisible, callback: 'submitInvisibleRecaptchaForm' %>
           <% end %>

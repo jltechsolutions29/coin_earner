@@ -14,7 +14,7 @@ class UsersController < ApplicationController
 
   def solve_captcha
     if verify_recaptcha()
-      flash[:notice] ="captcha solved"
+      flash[:notice] ="captcha successfully solved"
       redirect_to root_path
     else
       flash[:alert] ="failed to solve captcha."
