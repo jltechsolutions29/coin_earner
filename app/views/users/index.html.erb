@@ -6,7 +6,7 @@
       <div class="w3-sidebar w3-light-grey w3-bar-block side-left-border" style="width:22%">
         <img alt="" width="200" height="200"  src="/assets/user-profile-default.png">
 
-        <input type="submit" name="commit" value="Activate Account" >
+        <input type="submit" name="commit" value="Activate Account" class="home-button">
 
       </div>
 
@@ -23,16 +23,16 @@
 
 
 
-
+          <br>
 
           <%= form_for :user, :url => {:action => :solve_captcha}, remote: true, authenticity_token: true, html: {id: :invisible_recaptcha_form } do |f| %>
 
-              <button type="button" id="submit-btn">
+              <button type="button" id="submit-btn" class="home-button">
                 Solve Captcha
               </button>
               <%= invisible_recaptcha_tags ui: :invisible, callback: 'submitInvisibleRecaptchaForm' %>
           <% end %>
-
+          <br>
 
         </div>
 
